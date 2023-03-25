@@ -64,13 +64,13 @@
                                         <a href="{{ route('edit.post', $row->id) }}" class="btn btn-success">
                                             Edit
                                         </a>
-                                        <a href="{{ route('delete.subcategory', $row->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure for delete!')">Delete</a>
+                                        <a href="{{ route('delete.post', $row->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure for delete!')">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    {{-- {{ $subcategory->links() }} --}}
+                    {{ $post->links() }}
                 </div>
             </div>
 

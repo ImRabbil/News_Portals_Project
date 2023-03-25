@@ -87,3 +87,7 @@ Route::get('/all/post', [PostController::class, 'all_post'])->name('admin.all.po
 
 Route::get('/edit/post/{id}', [PostController::class, 'edit_post'])->name('edit.post');
 
+Route::post('/edit/update/{id}', [PostController::class, 'update_post'])->name('update.post');
+
+Route::get('delete/post/{id}', [PostController::class, 'post_delete'])->name('delete.post');
+
