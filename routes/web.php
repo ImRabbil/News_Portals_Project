@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\DistrictController;
 use App\Http\Controllers\Backend\SubDistrictController;
 use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\SettingController;
+use App\Http\Controllers\Backend\GalleryController;
 
 
 
@@ -75,21 +76,15 @@ Route::get('delete/subdistrict/{id}', [SubDistrictController::class, 'delete'])-
 
 // json route for category and district
 Route::get('/get/subcategory/{category_id}', [PostController::class, 'GetSubCategory']);
-
 Route::get('/get/subdistrict/{district_id}', [PostController::class, 'GetSubDistrict']);
 
 
 //all admin post route
 Route::get('/add/post', [PostController::class, 'index'])->name('admin.add.post');
-
 Route::post('/store', [PostController::class, 'store_post'])->name('store.post');
-
 Route::get('/all/post', [PostController::class, 'all_post'])->name('admin.all.post');
-
 Route::get('/edit/post/{id}', [PostController::class, 'edit_post'])->name('edit.post');
-
 Route::post('/edit/update/{id}', [PostController::class, 'update_post'])->name('update.post');
-
 Route::get('delete/post/{id}', [PostController::class, 'post_delete'])->name('delete.post');
 
 
@@ -127,6 +122,21 @@ Route::get('/website', [SettingController::class, 'website_index'])->name('admin
 Route::post('/store/website', [SettingController::class, 'Store_Website'])->name('store.website');
 Route::post('/edit/website/{id}', [SettingController::class, 'update_website'])->name('update.website');
 Route::get('delete/website/{id}', [SettingController::class, 'delete'])->name('delete.website');
+
+
+
+Route::get('/photo', [GalleryController::class, 'photo_index'])->name('admin.all.photo');
+Route::post('/store/photo', [GalleryController::class, 'Store_Photo'])->name('store.photo');
+Route::post('/update/photo/{id}', [GalleryController::class, 'update_photo'])->name('update.photo');
+Route::get('delete/photo/{id}', [GalleryController::class, 'delete'])->name('delete.photo');
+
+
+Route::get('/videos', [GalleryController::class, 'video_index'])->name('admin.add.videos');
+Route::get('/add/videos', [GalleryController::class, 'Add_Video'])->name('add.videos');
+Route::post('/store/video', [GalleryController::class, 'Store_Video'])->name('store.video');
+Route::get('/edit/video/{id}', [GalleryController::class, 'edit_video'])->name('edit.video');
+Route::post('/video/update/{id}', [GalleryController::class, 'update_video'])->name('update.video');
+Route::get('delete/video/{id}', [GalleryController::class, 'video_delete'])->name('delete.video');
 
 
 
