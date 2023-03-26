@@ -125,6 +125,76 @@
             </div>
         </li>
 
+        <li class="nav-item menu-items">
+            <a class="nav-link collapsed" data-toggle="collapse" href="#social" aria-expanded="false"
+                aria-controls="social">
+                <span class="menu-icon">
+                    <i class="mdi mdi-security"></i>
+                </span>
+                <span class="menu-title">Setting</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="social" style="">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.update.social') }}"> Socials-Setting </a></li>
+                    
+
+                </ul>
+            </div>
+
+            <div class="collapse" id="social" style="">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.update.prayer') }}">Prayer-Setting </a></li>
+                    
+
+                </ul>
+            </div>
+
+            <div class="collapse" id="social" style="">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.update.seo') }}">SEO-Setting </a></li>
+                    
+
+                </ul>
+            </div>
+            <div class="collapse" id="social" style="">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.live.tv') }}">Live-TvSetting </a></li>
+                    
+
+                </ul>
+            </div>
+
+            <div class="collapse" id="social" style="">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.notice') }}">Notice-Setting </a></li>
+                    
+                </ul>
+            </div>
+
+
+        </li>
+
+        <li class="nav-item menu-items">
+            <a class="nav-link collapsed" data-toggle="collapse" href="#website" aria-expanded="false"
+                aria-controls="website">
+                <span class="menu-icon">
+                    <i class="mdi mdi-security"></i>
+                </span>
+                <span class="menu-title">Website</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="website" style="">
+                <ul class="nav flex-column sub-menu">
+                    {{-- <li class="nav-item"> <a class="nav-link" href="{{ route('admin.add.website') }}"> Add Website </a></li> --}}
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.all.website') }}">All  Website
+                        </a></li>
+
+                </ul>
+            </div>
+        </li>
+
+       
 
         <li class="nav-item menu-items">
             <a class="nav-link" href="pages/charts/chartjs.html">

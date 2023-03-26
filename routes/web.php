@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\DistrictController;
 use App\Http\Controllers\Backend\SubDistrictController;
 use App\Http\Controllers\Backend\PostController;
+use App\Http\Controllers\Backend\SettingController;
 
 
 
@@ -90,4 +91,43 @@ Route::get('/edit/post/{id}', [PostController::class, 'edit_post'])->name('edit.
 Route::post('/edit/update/{id}', [PostController::class, 'update_post'])->name('update.post');
 
 Route::get('delete/post/{id}', [PostController::class, 'post_delete'])->name('delete.post');
+
+
+//social setting route is here========================
+Route::get('/update/links', [SettingController::class, 'links_index'])->name('admin.update.social');
+Route::post('/links/update/{id}', [SettingController::class, 'update_links'])->name('update.link');
+
+
+Route::get('/update/seo', [SettingController::class, 'seo_index'])->name('admin.update.seo');
+Route::post('/seo/update/{id}', [SettingController::class, 'update_seo'])->name('update.seo');
+
+
+Route::get('/update/prayer', [SettingController::class, 'prayer_index'])->name('admin.update.prayer');
+Route::post('/prayer/update/{id}', [SettingController::class, 'update_prayer'])->name('update.prayer');
+
+
+
+Route::get('/update/liveTv', [SettingController::class, 'liveTv_index'])->name('admin.live.tv');
+Route::post('/live/tv/update/{id}', [SettingController::class, 'update_liveTv'])->name('update.liv.tv');
+Route::get('/active/liveTv/{id}', [SettingController::class, 'ActiveSetting'])->name('active.liveTv');
+Route::get('/deactive/liveTv/{id}', [SettingController::class, 'DeactiveSetting'])->name('deactive.liveTv');
+
+
+
+Route::get('/update/notice', [SettingController::class, 'notice_index'])->name('admin.notice');
+Route::post('/notice/update/{id}', [SettingController::class, 'update_notice'])->name('update.notice');
+Route::get('/active/notice/{id}', [SettingController::class, 'NoticeActiveSetting'])->name('active.notice');
+Route::get('/deactive/notice/{id}', [SettingController::class, 'NoticeDeactiveSetting'])->name('deactive.notice');
+
+
+
+
+
+Route::get('/website', [SettingController::class, 'website_index'])->name('admin.all.website');
+Route::post('/store/website', [SettingController::class, 'Store_Website'])->name('store.website');
+Route::post('/edit/website/{id}', [SettingController::class, 'update_website'])->name('update.website');
+Route::get('delete/website/{id}', [SettingController::class, 'delete'])->name('delete.website');
+
+
+
 

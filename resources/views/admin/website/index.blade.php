@@ -29,9 +29,9 @@
         </div>
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Category List
+                <h4 class="card-title">Website List
                     <button type="button" class="btn btn-success btn-fw template-demo" style="float:right"
-                        data-toggle="modal" data-target="#createCategory">Add Category</button>
+                        data-toggle="modal" data-target="#createWebsite">Add website</button>
                 </h4>
                 </p>
                 <div class="table-responsive">
@@ -39,8 +39,8 @@
                         <thead>
                             <tr>
                                 <th> # </th>
-                                <th> Category English </th>
-                                <th> Category Hindi </th>
+                                <th> Website Name </th>
+                                <th> Website Link </th>
                                 <th> Action </th>
                             </tr>
                         </thead>
@@ -48,27 +48,27 @@
                             @php
                                 $i = 1;
                             @endphp
-                            @foreach ($category as $row)
+                            @foreach ($website as $row)
                                 <tr>
                                     <td> {{ $i++ }} </td>
-                                    <td> {{ $row->category_en }}</td>
-                                    <td> {{ $row->category_hin }}</td>
+                                    <td> {{ $row->website_name }}</td>
+                                    <td> {{ $row->website_link }}</td>
                                     <td>
                                         <a href="#" type="button" class="btn btn-success" data-toggle="modal"
-                                            data-target="#EditCategory{{ $row->id }}">
+                                            data-target="#EditWebsite{{ $row->id }}">
                                             Edit
                                         </a>
-                                        <a href="{{ route('delete.category', $row->id) }}" class="btn btn-danger"
+                                        <a href="{{ route('delete.website', $row->id) }}" class="btn btn-danger"
                                             onclick="return confirm('Are you sure for delete!')">Delete</a>
                                     </td>
                                 </tr>
                                 {{-- Start Edit Modal --}}
-                                <div class="modal fade" id="EditCategory{{ $row->id }}" tabindex="-1" role="dialog"
+                                <div class="modal fade" id="EditWebsite{{ $row->id }}" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-md" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Edit Category</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Edit Website</h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
@@ -76,19 +76,19 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="card-body">
-                                                    <form action="{{ route('update.category', $row->id) }}" method="POST"
+                                                    <form action="{{ route('update.website', $row->id) }}" method="POST"
                                                         enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="form-group">
-                                                            <label for="exampleInputUsername1">Category English</label>
-                                                            <input type="text" class="form-control" name="category_en"
-                                                                value="{{ $row->category_en }}">
+                                                            <label for="exampleInputUsername1">Website Name</label>
+                                                            <input type="text" class="form-control" name="website_name"
+                                                                value="{{ $row->website_name }}">
 
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="exampleInputUsername1">Category Hindi</label>
-                                                            <input type="text" class="form-control" name="category_hin"
-                                                                value="{{ $row->category_hin }}">
+                                                            <label for="exampleInputUsername1">Website Link</label>
+                                                            <input type="text" class="form-control" name="website_link"
+                                                                value="{{ $row->website_link }}">
 
                                                         </div>
 
@@ -112,36 +112,36 @@
                 @endforeach
                 </tbody>
                 </table>
-                {{ $category->links() }}
+                {{-- {{ $website->links() }} --}}
             </div>
         </div>
 
         {{-- Start Create Modal --}}
-        <div class="modal fade" id="createCategory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="createWebsite" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-md" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Create Team</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Add Website</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
                         <div class="card-body">
-                            <form action="{{ route('store.category') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('store.website') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="exampleInputUsername1">Category English</label>
-                                    <input type="text" class="form-control" name="category_en" required>
-                                    @error('category_en')
+                                    <label for="exampleInputUsername1">Website Name</label>
+                                    <input type="text" class="form-control" name="website_name" required>
+                                    @error('website_name')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputUsername1">Category Hindi</label>
-                                    <input type="text" class="form-control" name="category_hin" required>
-                                    @error('category_hin')
+                                    <label for="exampleInputUsername1">Website Link</label>
+                                    <input type="text" class="form-control" name="website_link" required>
+                                    @error('website_link')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>

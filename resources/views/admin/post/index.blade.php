@@ -36,9 +36,8 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">New Post Insert</h4>
-                    <form action="{{ route('store.post') }}" method="post"
-                                    enctype="multipart/form-data">
-                                    @csrf
+                    <form action="{{ route('store.post') }}" method="post" enctype="multipart/form-data">
+                        @csrf
 
                         <div class="row">
                             {{-- start row --}}
