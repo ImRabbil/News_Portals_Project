@@ -31,7 +31,7 @@
         <div class="modal-body">
             <div class="card-body">
                 <h4 class="card-title">Socials Link Update</h4>
-                <form action="{{ url('update.link', $link->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('update_link', $link->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputUsername1">Facebook</label>

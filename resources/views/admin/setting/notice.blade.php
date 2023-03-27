@@ -51,7 +51,7 @@
 
                     <div class="form-group">
                         <label for="exampleInputUsername1">Notice</label>
-                        <textarea class="form-control" name="notice" id="summernote1">{{ $notice->notice }}</textarea>
+                        <textarea class="form-control" name="notice" id="summernote1">{!! $notice->notice !!}</textarea>
                         @error('notice')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror

@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\SubDistrictController;
 use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\GalleryController;
+use App\Http\Controllers\Fontend\ExtraController;
 
 
 
@@ -25,7 +26,7 @@ use App\Http\Controllers\Backend\GalleryController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('fontend.home');
 });
 
 Route::middleware([
@@ -90,7 +91,7 @@ Route::get('delete/post/{id}', [PostController::class, 'post_delete'])->name('de
 
 //social setting route is here========================
 Route::get('/update/links', [SettingController::class, 'links_index'])->name('admin.update.social');
-Route::post('/links/update/{id}', [SettingController::class, 'update_links'])->name('update.link');
+Route::post('/links/update/{id}', [SettingController::class, 'update_links'])->name('update_link');
 
 
 Route::get('/update/seo', [SettingController::class, 'seo_index'])->name('admin.update.seo');
@@ -137,6 +138,14 @@ Route::post('/store/video', [GalleryController::class, 'Store_Video'])->name('st
 Route::get('/edit/video/{id}', [GalleryController::class, 'edit_video'])->name('edit.video');
 Route::post('/video/update/{id}', [GalleryController::class, 'update_video'])->name('update.video');
 Route::get('delete/video/{id}', [GalleryController::class, 'video_delete'])->name('delete.video');
+
+
+
+
+//multi language route===================
+Route::get('/english', [ExtraController::class, 'English'])->name('language.english');
+Route::get('/hindi', [ExtraController::class, 'Hindi'])->name('language.hindi');
+
 
 
 
