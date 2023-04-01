@@ -38,7 +38,7 @@
                         <thead>
                             <tr>
                                 <th> # </th>
-                                <th> Post Title </th>
+                                <th > Post Title </th>
                                 <th> Category </th>
                                 <th> District </th>
                                 <th> Image </th>

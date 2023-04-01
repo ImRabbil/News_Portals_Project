@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-        <a class="sidebar-brand brand-logo" href="{{ url('dashboard') }}"><img src="{{ asset('backend') }}/assets/images/logo.svg"
-                alt="logo" /></a>
+        <a class="sidebar-brand brand-logo" href="{{ url('dashboard') }}"><img
+                src="{{ asset('backend') }}/assets/images/logo.svg" alt="logo" /></a>
         <a class="sidebar-brand brand-logo-mini" href="index.html"><img
                 src="{{ asset('backend') }}/assets/images/logo-mini.svg" alt="logo" /></a>
     </div>
@@ -117,8 +117,9 @@
             </a>
             <div class="collapse" id="post" style="">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.add.post') }}"> Add Post </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.all.post') }}">All  Post
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.add.post') }}"> Add Post </a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.all.post') }}">All Post
                         </a></li>
 
                 </ul>
@@ -136,39 +137,44 @@
             </a>
             <div class="collapse" id="social" style="">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.update.social') }}"> Socials-Setting </a></li>
-                    
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.update.social') }}">
+                            Socials-Setting </a></li>
+
 
                 </ul>
             </div>
 
             <div class="collapse" id="social" style="">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.update.prayer') }}">Prayer-Setting </a></li>
-                    
+                    <li class="nav-item"> <a class="nav-link"
+                            href="{{ route('admin.update.prayer') }}">Prayer-Setting </a></li>
+
 
                 </ul>
             </div>
 
             <div class="collapse" id="social" style="">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.update.seo') }}">SEO-Setting </a></li>
-                    
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.update.seo') }}">SEO-Setting
+                        </a></li>
+
 
                 </ul>
             </div>
             <div class="collapse" id="social" style="">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.live.tv') }}">Live-TvSetting </a></li>
-                    
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.live.tv') }}">Live-TvSetting
+                        </a></li>
+
 
                 </ul>
             </div>
 
             <div class="collapse" id="social" style="">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.notice') }}">Notice-Setting </a></li>
-                    
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.notice') }}">Notice-Setting </a>
+                    </li>
+
                 </ul>
             </div>
 
@@ -187,7 +193,7 @@
             <div class="collapse" id="website" style="">
                 <ul class="nav flex-column sub-menu">
                     {{-- <li class="nav-item"> <a class="nav-link" href="{{ route('admin.add.website') }}"> Add Website </a></li> --}}
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.all.website') }}">All  Website
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.all.website') }}">All Website
                         </a></li>
 
                 </ul>
@@ -205,7 +211,8 @@
             </a>
             <div class="collapse" id="gallery" style="">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.add.videos') }}"> VideosGallery</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.add.videos') }}">
+                            VideosGallery</a></li>
                     <li class="nav-item"> <a class="nav-link" href="{{ route('admin.all.photo') }}"> PhotoGallery
                         </a></li>
 
@@ -213,26 +220,26 @@
             </div>
         </li>
 
-       
-
-        <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/charts/chartjs.html">
-                <span class="menu-icon">
-                    <i class="mdi mdi-chart-bar"></i>
-                </span>
-                <span class="menu-title">Charts</span>
-            </a>
-        </li>
 
 
         <li class="nav-item menu-items">
-            <a class="nav-link"
-                href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html">
+            <a class="nav-link collapsed" data-toggle="collapse" href="#ads" aria-expanded="false"
+                aria-controls="ads">
                 <span class="menu-icon">
-                    <i class="mdi mdi-file-document-box"></i>
+                    <i class="mdi mdi-security"></i>
                 </span>
-                <span class="menu-title">Documentation</span>
+                <span class="menu-title">Advertisment</span>
+                <i class="menu-arrow"></i>
             </a>
+            <div class="collapse" id="ads" style="">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.all.ads') }}"> Ads List</a>
+                    </li>
+                    {{-- <li class="nav-item"> <a class="nav-link" href="{{ route('admin.all.photo') }}"> Ads Add
+                        </a></li> --}}
+
+                </ul>
+            </div>
         </li>
     </ul>
 </nav>

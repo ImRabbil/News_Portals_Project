@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\GalleryController;
 use App\Http\Controllers\Fontend\ExtraController;
+use App\Http\Controllers\Backend\AdvertismentController;
 
 
 
@@ -145,6 +146,34 @@ Route::get('delete/video/{id}', [GalleryController::class, 'video_delete'])->nam
 //multi language route===================
 Route::get('/english', [ExtraController::class, 'English'])->name('language.english');
 Route::get('/hindi', [ExtraController::class, 'Hindi'])->name('language.hindi');
+
+//fontend signle page route here===========
+Route::get('/single/post/{id}', [ExtraController::class, 'SinglePost']);
+
+//cateroy and subcategory route
+Route::get('/catpost/{id}/{category_en}', [ExtraController::class, 'CategoryPost']);
+Route::get('/subcatpost/{id}/{subcategory_en}', [ExtraController::class, 'SubCategoryPost']);
+
+// json route for  district fontend
+Route::get('/get/subdistrict/fontend/{district_id}', [ExtraController::class, 'GetSubDistrict']);
+
+//serach route ===========
+Route::get('/search/district', [ExtraController::class, 'Searching'])->name('search.district');
+
+//admin ads route====
+Route::get('/all/ads', [AdvertismentController::class, 'AllAds'])->name('admin.all.ads');
+Route::post('/store/ads', [AdvertismentController::class, 'Store_ads'])->name('store.ads');
+
+
+
+
+
+
+
+
+
+
+
 
 
 

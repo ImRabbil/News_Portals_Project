@@ -41,14 +41,14 @@ class GalleryController extends Controller
         $data['title']= $request->title;
         $data['type']= $request->type;
         
-        $old_image = $request->photo;
+        $old_image = $request->old_image;
         $photo = $request->file('photo');
         if($photo){
             $image_one = uniqid().'.'.$photo->getClientOriginalExtension();
             Image::make($photo)->resize(500,300)->save('image/GalleryPhoto/'.$image_one);
             $data['photo']= 'image/GalleryPhoto/'.$image_one;
             DB::table('photos')->where('id',$id)->update($data);
-            unlink($old_image);
+            @unlink($old_image);
             $notification = array(
                 'message' => 'Photo Upadate Successfully',
                 'alert-type' => 'success'

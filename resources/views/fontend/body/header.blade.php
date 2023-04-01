@@ -1,6 +1,9 @@
 @php
     $categories = DB::table('categories')->get();
     $link = DB::table('social_links')->first();
+    $horizental = DB::table('ads')
+        ->skip(1)
+        ->first();
     
 @endphp
 
@@ -31,7 +34,14 @@
                             <!-- Collection of nav links and other content for toggling -->
                             <div id="navbarCollapse" class="collapse navbar-collapse">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="#">HOME</a></li>
+                                    <li><a href="{{ url('/') }}">
+                                            @if (session()->get('lang') == 'hindi')
+                                                सूचना
+                                            @else
+                                                HOME
+                                            @endif
+
+                                        </a></li>
                                     @foreach ($categories as $item)
                                         @php
                                             $subcat = DB::table('subcategories')
@@ -39,7 +49,7 @@
                                                 ->get();
                                         @endphp
                                         <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                            <a href="{{ URL::to('catpost/' . $item->id . '/' . $item->category_en) }}">
                                                 @if (session()->get('lang') == 'hindi')
                                                     {{ $item->category_hin }}
                                                 @else
@@ -49,7 +59,8 @@
                                             </a>
                                             <ul class="dropdown-menu">
                                                 @foreach ($subcat as $item)
-                                                    <li><a href="#">
+                                                    <li><a
+                                                            href="{{ URL::to('subcatpost/' . $item->id . '/' . $item->subcategory_en) }}">
                                                             @if (session()->get('lang') == 'hindi')
                                                                 {{ $item->subcategory_hin }}
                                                             @else
@@ -152,7 +163,15 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-                <div class="top-add"><img src="{{ asset('fontend') }}/assets/img/top-ad.jpg" alt="" /></div>
+                <div class="top-add">
+
+                    @if ($horizental == null)
+                    @else
+                        <a href="{{ $horizental->link }}" target="_blank">
+                            <img src="{{ asset($horizental->ads) }}" alt="" />
+                </div></a>
+                @endif
+
             </div>
         </div>
     </div>
@@ -182,7 +201,7 @@
         ->where('posts.headline', 1)
         ->limit(3)
         ->get();
-    $notice = DB::table('notices')->first();    
+    $notice = DB::table('notices')->first();
 @endphp
 
 <section>
@@ -200,12 +219,10 @@
                 <marquee>
                     @foreach ($post as $item)
                         @if (session()->get('lang') == 'hindi')
-                        {{ $item->title_hin }}
+                            {{ $item->title_hin }}
                         @else
-                        {{ $item->title_en }}
+                            {{ $item->title_en }}
                         @endif
-
-                       
                     @endforeach
 
                 </marquee>
@@ -216,27 +233,25 @@
 
 @if ($notice->status == 1)
 
-<section>
-    <div class="container-fluid">
-        <div class="row scroll">
-            <div class="col-md-2 col-sm-3 scroll_01 " style="background-color: darkgreen" >
-                @if (session()->get('lang') == 'hindi')
-                सूचना:
-                @else
-                Notice :
-                @endif
+    <section>
+        <div class="container-fluid">
+            <div class="row scroll">
+                <div class="col-md-2 col-sm-3 scroll_01 " style="background-color: darkgreen">
+                    @if (session()->get('lang') == 'hindi')
+                        सूचना:
+                    @else
+                        Notice :
+                    @endif
 
-            </div>
-            <div class="col-md-10 col-sm-9 scroll_02" style="background-color: red" >
-                <marquee>
-                    {!! $notice->notice !!}
+                </div>
+                <div class="col-md-10 col-sm-9 scroll_02" style="background-color: red">
+                    <marquee>
+                        {!! $notice->notice !!}
 
-                </marquee>
+                    </marquee>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-    
+    </section>
+
 @endif
-
-
